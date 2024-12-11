@@ -5,34 +5,34 @@ import { KakuaService } from './kakua.service';
 
 
 
-@Controller('kakua/create')
+@Controller('kakua')
 export class KakuaController {
   constructor(private readonly kakuaService: KakuaService) {}
 
-  @Post()
-  create(@Body() KakuaDto: KakuaDto) {
+  @Post('create')
+  async create(@Body() KakuaDto: KakuaDto) {
 
     return this.kakuaService.create(KakuaDto);
    
   }
 
-  @Get()
-  findAll() {
+  @Get('findAll')
+  async findAll() {
     return this.kakuaService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.kakuaService.findOne(id); 
+ async findOne(@Param('id') id: string) {
+    return  this.kakuaService.findOne(id); 
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateKakuaDto: KakuaDto) {
+ async update(@Param('id') id: string, @Body() updateKakuaDto: KakuaDto) {
     return this.kakuaService.update(id, updateKakuaDto); 
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+ async remove(@Param('id') id: string) {
     return this.kakuaService.remove(id); 
   }
 }
