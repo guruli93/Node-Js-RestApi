@@ -1,7 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { Kakua } from './entities/kakua.entity';
 import { ObjectId } from 'mongodb';
 import { EntityManager } from 'typeorm';
+
+
 
 
 @Injectable()
